@@ -37,14 +37,14 @@ export function ProjectsSection() {
                 {projects.map((project) => (
                     <article key={project.title} className="project-card">
                         <div
-                            className="project-image card card2"
+                            className="project-image card2"
                             style={{ backgroundImage: `url(${project.image})` }}
                         >
                             <span className="project-category">{project.category}</span>
                         </div>
                         <div className="project-copy ">
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
+                            <h3 className="Title">{project.title}</h3>
+                            <p className="description">{project.description}</p>
                         </div>
                     </article>
                 ))}
