@@ -26,6 +26,8 @@ const projects: Project[] = [
     },
 ];
 
+
+
 export function ProjectsSection() {
     return (
         <section className="projects-section">
@@ -33,16 +35,20 @@ export function ProjectsSection() {
                 {/* <p className="section-label">Proyectos destacados</p> */}
                 {/* <h2>Trabajo por categoría</h2> */}
             </div>
-            <div className="project-grid ">
+            <div className="project-grid">
                 {projects.map((project) => (
                     <article key={project.title} className="project-card">
-                        <div
-                            className="project-image card2"
-                            style={{ backgroundImage: `url(${project.image})` }}
-                        >
+                        <span className="sheet sheet--1" aria-hidden="true" />
+                        <span className="sheet sheet--2" aria-hidden="true" />
+                        <span className="sheet sheet--3" aria-hidden="true" />
+                        <div className="project-image">
+                            <div
+                                className="project-photo"
+                                style={{ backgroundImage: `url(${project.image})` }}
+                            />
                             <span className="project-category">{project.category}</span>
                         </div>
-                        <div className="project-copy ">
+                        <div className="project-copy">
                             <h3 className="Title">{project.title}</h3>
                             <p className="description">{project.description}</p>
                         </div>
@@ -52,5 +58,4 @@ export function ProjectsSection() {
         </section>
     );
 }
-
 // export default ProjectsSection;

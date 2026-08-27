@@ -3,7 +3,9 @@ export function Hero() {
         <section className="hero-section">
             <div className="hero-copy">
                 <p className="hero-label">Dirección creativa + arte + interiores</p>
-                <h1 className="hero-title">Diseño con mirada estratégica y estética única.</h1>
+                <h1 className="hero-title">
+                    Diseño con estética <span className="hero-title__accent">única.</span>
+                </h1>
                 {/* <p className="hero-description">
                     Portafolio de proyectos que combinan dirección creativa, dirección de arte y diseño de interiores.
                     Aquí encontrarás ideas de branding, espacios y escenas visuales para marcas con personalidad.
