@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="app-shell">
             <Hero />
-            <main>
+            <main className="gradient-untitled" >
                 < ProjectsSection />
                 < ContactSection />
             </main>
