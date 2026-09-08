@@ -1,57 +1,65 @@
+import type { CSSProperties } from 'react';
+
 type Project = {
     title: string;
-    category: string;
     description: string;
     image: string;
+    color: string;
+    kind: 'image' | 'copy';
 };
 
 const projects: Project[] = [
     {
-        title: 'Colección editorial',
-        category: 'Dirección creativa',
-        description: 'Concepto visual y narrativa de campaña para lanzamiento.',
-        image: 'https://images.unsplash.com/photo-1496200186974-4293800e2c20?auto=format&fit=crop&w=1200&q=80',
+        title: 'Asesorías /',
+        description: 'Dirección creativa',
+        image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80',
+        color: '#b8c1e0',
+        kind: 'image',
     },
     {
-        title: 'Identidad sensorial',
-        category: 'Dirección de arte',
-        description: 'Tono visual, paleta y fotografía para marca premium.',
-        image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80',
+        title: 'Fotografía',
+        description: 'Imagen, concepto y narrativa visual.',
+        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+        color: '#d9d4cc',
+        kind: 'image',
     },
     {
-        title: 'Espacio doméstico',
-        category: 'Diseño de interiores',
+        title: 'Diseño de interiores',
         description: 'Diseño de ambientes cálidos con detalles contemporáneos.',
         image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
+        color: '#929a81',
+        kind: 'image',
     },
 ];
-
-
 
 export function ProjectsSection() {
     return (
         <section className="projects-section">
-            <div className="section-heading">
-                {/* <p className="section-label">Proyectos destacados</p> */}
-                {/* <h2>Trabajo por categoría</h2> */}
-            </div>
             <div className="project-grid">
                 {projects.map((project) => (
-                    <article key={project.title} className="project-card">
-                        <span className="sheet sheet--1" aria-hidden="true" />
-                        <span className="sheet sheet--2" aria-hidden="true" />
-                        <span className="sheet sheet--3" aria-hidden="true" />
-                        <div className="project-image">
-                            <div
-                                className="project-photo"
-                                style={{ backgroundImage: `url(${project.image})` }}
-                            />
-                            <span className="project-category">{project.category}</span>
-                        </div>
-                        <div className="project-copy">
-                            <h3 className="Title">{project.title}</h3>
-                            <p className="description">{project.description}</p>
-                        </div>
+                    <article
+                        key={project.title}
+                        className={`project-card project-card--${project.kind}`}
+                        style={{ '--project-color': project.color } as CSSProperties}
+                    >
+                        {project.kind === 'image' ? (
+                            <>
+                                <div
+                                    className="project-photo"
+                                    style={{ backgroundImage: `url(${project.image})` }}
+                                />
+                                <div className="project-card__footer">
+                                    <h3>{project.title}</h3>
+                                    <p>{project.description}</p>
+                                </div>
+                            </>
+                        ) : (
+                            <p className="project-card__message">
+                                {project.title}
+                                <br />
+                                {project.description}
+                            </p>
+                        )}
                     </article>
                 ))}
             </div>
