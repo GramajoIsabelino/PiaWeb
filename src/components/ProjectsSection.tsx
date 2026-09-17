@@ -144,7 +144,7 @@ export function PortfolioPage({ category, onClose }: { category: Category; onClo
             {activeProject && (
                 <div className="portfolio-modal" role="dialog" aria-modal="true" aria-label={readableProjectName(activeProject.name)}>
                     <button className="portfolio-modal__close" type="button" onClick={() => setSelectedProject(null)}>
-                        Cerrar
+                        ×
                     </button>
                     <div className="portfolio-modal__content">
                         <p className="section-label">{categoryNames[category]}</p>
@@ -165,7 +165,7 @@ export function PortfolioPage({ category, onClose }: { category: Category; onClo
                     {selectedImage && selectedImageIndex !== null && (
                         <div className="image-lightbox" role="dialog" aria-modal="true">
                             <button className="image-lightbox__close" type="button" onClick={() => setSelectedImageIndex(null)}>
-                                Cerrar
+                                ×
                             </button>
                             <button
                                 className="image-lightbox__arrow image-lightbox__arrow--previous"
