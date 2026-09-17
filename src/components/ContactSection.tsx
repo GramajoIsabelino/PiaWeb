@@ -1,4 +1,18 @@
+import { FormEvent, useState } from 'react';
+
 export function ContactSection() {
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        const form = new FormData(event.currentTarget);
+        const subject = encodeURIComponent(`Consulta de ${form.get('name') ?? 'nuevo proyecto'}`);
+        const body = encodeURIComponent(
+            `Nombre: ${form.get('name') ?? ''}\nEmail: ${form.get('email') ?? ''}\n\n${form.get('message') ?? ''}`,
+        );
+        window.location.href = `mailto:hola@cliente.com?subject=${subject}&body=${body}`;
+    }
+
     return (
         <section className="contact-section">
             <div className="contact-card contact-intro">
@@ -9,27 +23,29 @@ export function ContactSection() {
                     propuestas con estilo y estrategia.
                 </p>
 
-                <button className="button ">
-                    Charlemos
+                <button className="button" type="button" onClick={() => setIsFormOpen((open) => !open)} aria-expanded={isFormOpen}>
+                    {isFormOpen ? 'Cerrar formulario' : 'Charlemos'}
                 </button>
 
+                {isFormOpen && (
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        <label>
+                            Nombre
+                            <input name="name" type="text" required />
+                        </label>
+                        <label>
+                            Email
+                            <input name="email" type="email" required />
+                        </label>
+                        <label>
+                            Mensaje
+                            <textarea name="message" rows={4} required />
+                        </label>
+                        <button className="button contact-form__submit" type="submit">Enviar</button>
+                    </form>
+                )}
             </div>
-            {/* <div className="contact-card contact-details">
-                <div>
-                    <h3>Correo</h3>
-                    <p>hola@cliente.com</p>
-                </div>
-                <div>
-                    <h3>Instagram</h3>
-                    <p>@cliente.creativa</p>
-                </div>
-                <div>
-                    <h3>Ubicación</h3>
-                    <p>Ciudad, país</p>
-                </div>
-            </div> */}
         </section>
     );
 }
-
 
