@@ -19,7 +19,7 @@ type Project = {
 
 const projects: Project[] = [
     {
-        title: 'Asesorías /',
+        title: 'Asesoria - Direccion creativa',
         description: 'Dirección creativa',
         category: 'Asesoria',
         image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80',

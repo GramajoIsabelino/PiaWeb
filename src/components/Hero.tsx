@@ -2,7 +2,7 @@ export function Hero() {
     return (
         <section className="hero-section">
             <div className="hero-copy">
-                <p className="hero-label">Dirección creativa + arte + interiores</p>
+                <p className="hero-label">DIRECCION CREATIVA - ASESORIA - DISEÑO INTERIORES</p>
                 <h1 className="hero-title">
                     Diseño con estética <span className="hero-title__accent">única.</span>
                 </h1>
@@ -18,5 +18,3 @@ export function Hero() {
         </section>
     );
 }
-
-
